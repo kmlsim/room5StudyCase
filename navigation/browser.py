@@ -41,4 +41,22 @@ class Browser(object):
         """
         return self.driver.find_element_by_css_selector(selector)
 
+    def search(self, search):
+        """
+        serch for something on the page
+        """
+        self.driver.find_element_by_class_name('room5-icons-search').click()
+        searchField = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.CLASS_NAME, 'search-input'))
+        )
+        searchField.send_keys(search)
+        self.driver.implicitly_wait(10)
 
+    def search_result(self):
+        result = 'div.post-title > a > h3.mt-8.montserrat-regular'
+        searchResult = []
+        
+        searchResult = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_all_elements_located((By.CSS_SELECTOR, result))
+        )
+        assert "Brazil" in searchResult[0].text
