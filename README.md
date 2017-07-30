@@ -12,4 +12,4 @@ You can simply use `pip install` to install Selenium and Behave to your machine.
 
 ## Run it!
 After download the code to your machine, navigate to *navigation* folder and then run the command `behave` on terminal.
-This this script was developed on Linux Ubuntu.
+This script was developed on Linux Ubuntu.
