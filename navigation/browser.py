@@ -25,6 +25,7 @@ class Browser():
         """
         url = self.base_url + location
         self.driver.get(url)
+        self.driver.implicitly_wait(10)
 
     def find_by_id(self, selector):
         """
@@ -71,3 +72,20 @@ class Browser():
 
     def validate_contry_page(self):
         assert 'http://room5.trivago.com.br/' in self.driver.current_url
+
+    def menu_open(self):
+        menu_btn = self.find_by_class_name('nav-icon')
+        menu_btn.click()
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, 'div.single-menu.montserrat-regular.open'))
+        )
+
+    def menu_navigation(self):
+        family_option = self.driver.find_element_by_xpath('//a[text()="Family"]')
+        family_option.click()
+        self.driver.implicitly_wait(10)
+
+    def validate_family_page(self):
+        self.driver.find_element_by_xpath('//h1[text()="Family"]')
+        assert 'http://room5.trivago.com/theme/family/' in self.driver.current_url
+        assert u'Family' in self.driver.title

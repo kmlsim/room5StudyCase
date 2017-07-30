@@ -14,11 +14,11 @@ Feature: Navigate throug room5 website
     When s/he navigate to the botton of the page,
     And s/he changes the country option to 'Brazil'
     Then s/he will be redirect the contry choose page.
-  #
-  # Scenario: User is able to navigate throught the menu
-  #   Given the menu on the room5 page
-  #   When the user navigate through it
-  #   Then s/he will be able to go to the pages it was selected.
+
+  Scenario: User is able to navigate throught the menu
+    Given the menu on the room5 page
+    When the user navigate through it
+    Then s/he will be able to go to the pages it was selected.
   #
   # Scenario: User is able to see the content from the main page
   #   Given the user on the main page
