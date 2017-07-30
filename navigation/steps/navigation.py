@@ -56,3 +56,19 @@ def step_impl(context):
 @then(u's/he will be redirect the contry choose page.')
 def step_impl(context):
     context.browser.validate_contry_page()
+
+# Scenario: User is able to navigate throught the menu
+
+@given(u'the menu on the room5 page')
+def step_impl(context):
+    context.browser.visit('/')
+    context.browser.menu_open()
+
+
+@when(u'the user navigate through it')
+def step_impl(context):
+    context.browser.menu_navigation()
+
+@then(u's/he will be able to go to the pages it was selected.')
+def step_impl(context):
+    context.browser.validate_family_page()
