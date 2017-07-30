@@ -8,12 +8,12 @@ Feature: Navigate throug room5 website
     Given the user is on the main page of room5
     When the s/he search for 'Brazil' on the search field
     Then the site will return his/her research.
-  
-  # Scenario: User is able to change contry preferences
-  #   Given the user on the main page
-  #   When s/he navigate to the botton of the page,
-  #   And s/he changes the country option to 'Brazil'
-  #   Then s/he will be redirect the contry choose page.
+
+  Scenario: User is able to change country preferences
+    Given the user on the main page
+    When s/he navigate to the botton of the page,
+    And s/he changes the country option to 'Brazil'
+    Then s/he will be redirect the contry choose page.
   #
   # Scenario: User is able to navigate throught the menu
   #   Given the menu on the room5 page

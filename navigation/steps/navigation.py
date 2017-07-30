@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 
 from behave import *
 from browser import Browser
@@ -33,9 +34,25 @@ def step_impl(context):
 @when(u'the s/he search for \'Brazil\' on the search field')
 def step_impl(context):
 	context.browser.search('Brazil')
-    
+
 @then(u'the site will return his/her research.')
 def step_impl(context):
     context.browser.search_result()
 
-# 
+# Scenario: User is able to change country preferences
+
+@given(u'the user on the main page')
+def step_impl(context):
+    context.browser.visit('/')
+
+@when(u's/he navigate to the botton of the page,')
+def step_impl(context):
+    context.browser.find_by_id('footer')
+
+@when(u's/he changes the country option to \'Brazil\'')
+def step_impl(context):
+    context.browser.select_country_page('Brasil')
+
+@then(u's/he will be redirect the contry choose page.')
+def step_impl(context):
+    context.browser.validate_contry_page()
