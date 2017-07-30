@@ -89,3 +89,22 @@ class Browser():
         self.driver.find_element_by_xpath('//h1[text()="Family"]')
         assert 'http://room5.trivago.com/theme/family/' in self.driver.current_url
         assert u'Family' in self.driver.title
+
+    def inspire_me_subscription(self, email):
+        self.find_by_css_selector('.etn_box.etn_light')
+
+        email_field = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.ID, 'etn_email'))
+        )
+
+        email_field.clear()
+        email_field.send_keys(email)
+
+        inpire_me_btn = self.find_by_class_name('etn__submit')
+        inpire_me_btn.click()
+
+    def validate_email_subscription(self):
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, '.etn_box.etn_dark'))
+        )
+        self.driver.find_element_by_xpath('//div/p[text()="You are now checked-in!"]')

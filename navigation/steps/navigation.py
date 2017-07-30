@@ -72,3 +72,12 @@ def step_impl(context):
 @then(u's/he will be able to go to the pages it was selected.')
 def step_impl(context):
     context.browser.validate_family_page()
+
+# Scenario: User is able to subscribe email
+@when(u's/he add his/her email and click on \'inpire me\'')
+def step_impl(context):
+    context.browser.inspire_me_subscription('email1@gmail.com')
+
+@then(u'the email is subscribed on trivago')
+def step_impl(context):
+    context.browser.validate_email_subscription()

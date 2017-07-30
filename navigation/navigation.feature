@@ -19,8 +19,8 @@ Feature: Navigate throug room5 website
     Given the menu on the room5 page
     When the user navigate through it
     Then s/he will be able to go to the pages it was selected.
-  #
-  # Scenario: User is able to see the content from the main page
-  #   Given the user on the main page
-  #   When s/he clicks on a content
-  #   Then s/he will be addressed to the content page.
+
+  Scenario: User is able to subscribe email
+    Given the user on the main page
+    When s/he add his/her email and click on 'inpire me'
+    Then the email is subscribed on trivago
